@@ -19,7 +19,7 @@ namespace Game_Caro
         public CaroView()
         {
             InitializeComponent();
-            ChessBoardManager ChessBoard1 = new ChessBoardManager(pnlChessBoard);
+            ChessBoardManager ChessBoard1 = new ChessBoardManager(pnlChessBoard, tbUser, pbPlayerMark);
             ChessBoard1.DrawChessBoard();
         }
        

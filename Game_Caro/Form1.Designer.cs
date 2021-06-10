@@ -31,18 +31,18 @@ namespace Game_Caro
         {
             this.pnlChessBoard = new System.Windows.Forms.Panel();
             this.pnlLogo = new System.Windows.Forms.Panel();
-            this.pnlControl = new System.Windows.Forms.Panel();
-            this.tbUser = new System.Windows.Forms.TextBox();
-            this.prcbCoolDown = new System.Windows.Forms.ProgressBar();
-            this.tbIP = new System.Windows.Forms.TextBox();
-            this.btnLAN = new System.Windows.Forms.Button();
-            this.lbLaw = new System.Windows.Forms.Label();
-            this.pbMark = new System.Windows.Forms.PictureBox();
             this.pbLogo = new System.Windows.Forms.PictureBox();
+            this.pnlControl = new System.Windows.Forms.Panel();
+            this.lbLaw = new System.Windows.Forms.Label();
+            this.btnLAN = new System.Windows.Forms.Button();
+            this.tbIP = new System.Windows.Forms.TextBox();
+            this.pbPlayerMark = new System.Windows.Forms.PictureBox();
+            this.prcbCoolDown = new System.Windows.Forms.ProgressBar();
+            this.tbUser = new System.Windows.Forms.TextBox();
             this.pnlLogo.SuspendLayout();
-            this.pnlControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbMark)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
+            this.pnlControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPlayerMark)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlChessBoard
@@ -56,63 +56,41 @@ namespace Game_Caro
             // 
             // pnlLogo
             // 
-            this.pnlLogo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlLogo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlLogo.BackColor = System.Drawing.SystemColors.Control;
             this.pnlLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlLogo.Controls.Add(this.pbLogo);
-            this.pnlLogo.Location = new System.Drawing.Point(958, 13);
+            this.pnlLogo.Location = new System.Drawing.Point(941, 13);
             this.pnlLogo.Name = "pnlLogo";
             this.pnlLogo.Size = new System.Drawing.Size(400, 400);
             this.pnlLogo.TabIndex = 1;
             // 
+            // pbLogo
+            // 
+            this.pbLogo.BackgroundImage = global::Game_Caro.Properties.Resources.IMG_20201107_221901_471;
+            this.pbLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbLogo.Image = global::Game_Caro.Properties.Resources.Logo_BK;
+            this.pbLogo.Location = new System.Drawing.Point(4, 3);
+            this.pbLogo.Name = "pbLogo";
+            this.pbLogo.Size = new System.Drawing.Size(390, 392);
+            this.pbLogo.TabIndex = 0;
+            this.pbLogo.TabStop = false;
+            // 
             // pnlControl
             // 
-            this.pnlControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlControl.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlControl.BackColor = System.Drawing.SystemColors.Control;
             this.pnlControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlControl.Controls.Add(this.lbLaw);
             this.pnlControl.Controls.Add(this.btnLAN);
             this.pnlControl.Controls.Add(this.tbIP);
-            this.pnlControl.Controls.Add(this.pbMark);
+            this.pnlControl.Controls.Add(this.pbPlayerMark);
             this.pnlControl.Controls.Add(this.prcbCoolDown);
             this.pnlControl.Controls.Add(this.tbUser);
-            this.pnlControl.Location = new System.Drawing.Point(958, 419);
+            this.pnlControl.Location = new System.Drawing.Point(941, 419);
             this.pnlControl.Name = "pnlControl";
-            this.pnlControl.Size = new System.Drawing.Size(400, 379);
+            this.pnlControl.Size = new System.Drawing.Size(400, 372);
             this.pnlControl.TabIndex = 0;
-            // 
-            // tbUser
-            // 
-            this.tbUser.Location = new System.Drawing.Point(4, 15);
-            this.tbUser.Name = "tbUser";
-            this.tbUser.ReadOnly = true;
-            this.tbUser.Size = new System.Drawing.Size(159, 22);
-            this.tbUser.TabIndex = 0;
-            // 
-            // prcbCoolDown
-            // 
-            this.prcbCoolDown.Location = new System.Drawing.Point(4, 64);
-            this.prcbCoolDown.Name = "prcbCoolDown";
-            this.prcbCoolDown.Size = new System.Drawing.Size(159, 23);
-            this.prcbCoolDown.TabIndex = 1;
-            // 
-            // tbIP
-            // 
-            this.tbIP.Location = new System.Drawing.Point(4, 112);
-            this.tbIP.Name = "tbIP";
-            this.tbIP.Size = new System.Drawing.Size(159, 22);
-            this.tbIP.TabIndex = 3;
-            this.tbIP.Text = "127.0.0.1";
-            // 
-            // btnLAN
-            // 
-            this.btnLAN.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLAN.Location = new System.Drawing.Point(4, 161);
-            this.btnLAN.Name = "btnLAN";
-            this.btnLAN.Size = new System.Drawing.Size(159, 23);
-            this.btnLAN.TabIndex = 4;
-            this.btnLAN.Text = "LAN";
-            this.btnLAN.UseVisualStyleBackColor = true;
             // 
             // lbLaw
             // 
@@ -124,42 +102,64 @@ namespace Game_Caro
             this.lbLaw.TabIndex = 0;
             this.lbLaw.Text = "5 in line to win";
             // 
-            // pbMark
+            // btnLAN
             // 
-            this.pbMark.BackgroundImage = global::Game_Caro.Properties.Resources.IMG_20201107_221901_471;
-            this.pbMark.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbMark.Location = new System.Drawing.Point(213, 15);
-            this.pbMark.Name = "pbMark";
-            this.pbMark.Size = new System.Drawing.Size(170, 170);
-            this.pbMark.TabIndex = 2;
-            this.pbMark.TabStop = false;
+            this.btnLAN.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLAN.Location = new System.Drawing.Point(4, 161);
+            this.btnLAN.Name = "btnLAN";
+            this.btnLAN.Size = new System.Drawing.Size(159, 23);
+            this.btnLAN.TabIndex = 4;
+            this.btnLAN.Text = "LAN";
+            this.btnLAN.UseVisualStyleBackColor = true;
             // 
-            // pbLogo
+            // tbIP
             // 
-            this.pbLogo.BackgroundImage = global::Game_Caro.Properties.Resources.Logo_BK;
-            this.pbLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbLogo.Image = global::Game_Caro.Properties.Resources.Logo_BK;
-            this.pbLogo.Location = new System.Drawing.Point(4, 23);
-            this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(390, 353);
-            this.pbLogo.TabIndex = 0;
-            this.pbLogo.TabStop = false;
+            this.tbIP.Location = new System.Drawing.Point(4, 112);
+            this.tbIP.Name = "tbIP";
+            this.tbIP.Size = new System.Drawing.Size(159, 22);
+            this.tbIP.TabIndex = 3;
+            this.tbIP.Text = "127.0.0.1";
+            // 
+            // pbPlayerMark
+            // 
+            this.pbPlayerMark.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbPlayerMark.Location = new System.Drawing.Point(213, 15);
+            this.pbPlayerMark.Name = "pbPlayerMark";
+            this.pbPlayerMark.Size = new System.Drawing.Size(170, 170);
+            this.pbPlayerMark.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbPlayerMark.TabIndex = 2;
+            this.pbPlayerMark.TabStop = false;
+            // 
+            // prcbCoolDown
+            // 
+            this.prcbCoolDown.Location = new System.Drawing.Point(4, 64);
+            this.prcbCoolDown.Name = "prcbCoolDown";
+            this.prcbCoolDown.Size = new System.Drawing.Size(159, 23);
+            this.prcbCoolDown.TabIndex = 1;
+            // 
+            // tbUser
+            // 
+            this.tbUser.Location = new System.Drawing.Point(4, 15);
+            this.tbUser.Name = "tbUser";
+            this.tbUser.ReadOnly = true;
+            this.tbUser.Size = new System.Drawing.Size(159, 22);
+            this.tbUser.TabIndex = 0;
             // 
             // CaroView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1425, 810);
+            this.ClientSize = new System.Drawing.Size(1564, 805);
             this.Controls.Add(this.pnlControl);
             this.Controls.Add(this.pnlLogo);
             this.Controls.Add(this.pnlChessBoard);
             this.Name = "CaroView";
             this.Text = "Game Caro";
             this.pnlLogo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.pnlControl.ResumeLayout(false);
             this.pnlControl.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbMark)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPlayerMark)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -172,7 +172,7 @@ namespace Game_Caro
         private System.Windows.Forms.Panel pnlControl;
         private System.Windows.Forms.Button btnLAN;
         private System.Windows.Forms.TextBox tbIP;
-        private System.Windows.Forms.PictureBox pbMark;
+        private System.Windows.Forms.PictureBox pbPlayerMark;
         private System.Windows.Forms.ProgressBar prcbCoolDown;
         private System.Windows.Forms.TextBox tbUser;
         private System.Windows.Forms.Label lbLaw;

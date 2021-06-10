@@ -8,3 +8,13 @@ E:\Working\4_Caro_C#\Game_Caro\Game_Caro\obj\Debug\Game_Caro.csproj.CoreCompileI
 E:\Working\4_Caro_C#\Game_Caro\Game_Caro\obj\Debug\Game_Caro.exe
 E:\Working\4_Caro_C#\Game_Caro\Game_Caro\obj\Debug\Game_Caro.pdb
 E:\Working\4_Caro_C#\Game_Caro\Game_Caro\obj\Debug\Game_Caro.CaroView.resources
+E:\Working\4_Caro_C#\Game_Caro\bin\Debug\Game_Caro.exe.config
+E:\Working\4_Caro_C#\Game_Caro\bin\Debug\Game_Caro.exe
+E:\Working\4_Caro_C#\Game_Caro\bin\Debug\Game_Caro.pdb
+E:\Working\4_Caro_C#\Game_Caro\obj\Debug\Game_Caro.csprojAssemblyReference.cache
+E:\Working\4_Caro_C#\Game_Caro\obj\Debug\Game_Caro.CaroView.resources
+E:\Working\4_Caro_C#\Game_Caro\obj\Debug\Game_Caro.Properties.Resources.resources
+E:\Working\4_Caro_C#\Game_Caro\obj\Debug\Game_Caro.csproj.GenerateResource.cache
+E:\Working\4_Caro_C#\Game_Caro\obj\Debug\Game_Caro.csproj.CoreCompileInputs.cache
+E:\Working\4_Caro_C#\Game_Caro\obj\Debug\Game_Caro.exe
+E:\Working\4_Caro_C#\Game_Caro\obj\Debug\Game_Caro.pdb
