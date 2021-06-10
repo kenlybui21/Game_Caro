@@ -34,5 +34,9 @@ namespace Game_Caro.Class
             this.mark = _mark;
         }
         #endregion
+
+        #region Methods
+
+        #endregion
     }
 }
