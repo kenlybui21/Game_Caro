@@ -30,6 +30,7 @@ namespace Game_Caro
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CaroView));
             this.pnlChessBoard = new System.Windows.Forms.Panel();
             this.pnlLogo = new System.Windows.Forms.Panel();
             this.pbLogo = new System.Windows.Forms.PictureBox();
@@ -55,40 +56,30 @@ namespace Game_Caro
             // 
             // pnlChessBoard
             // 
-            this.pnlChessBoard.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.pnlChessBoard, "pnlChessBoard");
             this.pnlChessBoard.BackColor = System.Drawing.SystemColors.Control;
             this.pnlChessBoard.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlChessBoard.Location = new System.Drawing.Point(0, 37);
             this.pnlChessBoard.Name = "pnlChessBoard";
-            this.pnlChessBoard.Size = new System.Drawing.Size(922, 773);
-            this.pnlChessBoard.TabIndex = 0;
             // 
             // pnlLogo
             // 
+            resources.ApplyResources(this.pnlLogo, "pnlLogo");
             this.pnlLogo.BackColor = System.Drawing.SystemColors.Control;
             this.pnlLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlLogo.Controls.Add(this.pbLogo);
-            this.pnlLogo.Location = new System.Drawing.Point(928, 37);
             this.pnlLogo.Name = "pnlLogo";
-            this.pnlLogo.Size = new System.Drawing.Size(400, 395);
-            this.pnlLogo.TabIndex = 1;
             // 
             // pbLogo
             // 
-            this.pbLogo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            resources.ApplyResources(this.pbLogo, "pbLogo");
             this.pbLogo.BackgroundImage = global::Game_Caro.Properties.Resources.IMG_20201107_221901_471;
-            this.pbLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pbLogo.Image = global::Game_Caro.Properties.Resources.Logo_BK;
-            this.pbLogo.Location = new System.Drawing.Point(4, -2);
             this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(390, 392);
-            this.pbLogo.TabIndex = 0;
             this.pbLogo.TabStop = false;
             // 
             // pnlControl
             // 
+            resources.ApplyResources(this.pnlControl, "pnlControl");
             this.pnlControl.BackColor = System.Drawing.SystemColors.Control;
             this.pnlControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlControl.Controls.Add(this.lbLaw);
@@ -97,74 +88,48 @@ namespace Game_Caro
             this.pnlControl.Controls.Add(this.pbPlayerMark);
             this.pnlControl.Controls.Add(this.prcbCoolDown);
             this.pnlControl.Controls.Add(this.tbUser);
-            this.pnlControl.Location = new System.Drawing.Point(928, 443);
             this.pnlControl.Name = "pnlControl";
-            this.pnlControl.Size = new System.Drawing.Size(400, 367);
-            this.pnlControl.TabIndex = 0;
             // 
             // lbLaw
             // 
-            this.lbLaw.AutoSize = true;
-            this.lbLaw.Font = new System.Drawing.Font("Showcard Gothic", 20F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbLaw.Location = new System.Drawing.Point(56, 266);
+            resources.ApplyResources(this.lbLaw, "lbLaw");
             this.lbLaw.Name = "lbLaw";
-            this.lbLaw.Size = new System.Drawing.Size(288, 43);
-            this.lbLaw.TabIndex = 0;
-            this.lbLaw.Text = "5 in line to win";
             // 
             // btnLAN
             // 
-            this.btnLAN.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLAN.Location = new System.Drawing.Point(4, 161);
+            resources.ApplyResources(this.btnLAN, "btnLAN");
             this.btnLAN.Name = "btnLAN";
-            this.btnLAN.Size = new System.Drawing.Size(159, 23);
-            this.btnLAN.TabIndex = 4;
-            this.btnLAN.Text = "LAN";
             this.btnLAN.UseVisualStyleBackColor = true;
             // 
             // tbIP
             // 
-            this.tbIP.Location = new System.Drawing.Point(4, 112);
+            resources.ApplyResources(this.tbIP, "tbIP");
             this.tbIP.Name = "tbIP";
-            this.tbIP.Size = new System.Drawing.Size(159, 22);
-            this.tbIP.TabIndex = 3;
-            this.tbIP.Text = "127.0.0.1";
             // 
             // pbPlayerMark
             // 
-            this.pbPlayerMark.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbPlayerMark.Location = new System.Drawing.Point(213, 15);
+            resources.ApplyResources(this.pbPlayerMark, "pbPlayerMark");
             this.pbPlayerMark.Name = "pbPlayerMark";
-            this.pbPlayerMark.Size = new System.Drawing.Size(170, 170);
-            this.pbPlayerMark.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbPlayerMark.TabIndex = 2;
             this.pbPlayerMark.TabStop = false;
             // 
             // prcbCoolDown
             // 
-            this.prcbCoolDown.Location = new System.Drawing.Point(4, 64);
+            resources.ApplyResources(this.prcbCoolDown, "prcbCoolDown");
             this.prcbCoolDown.Name = "prcbCoolDown";
-            this.prcbCoolDown.Size = new System.Drawing.Size(159, 23);
-            this.prcbCoolDown.TabIndex = 1;
             // 
             // tbUser
             // 
-            this.tbUser.Location = new System.Drawing.Point(4, 15);
+            resources.ApplyResources(this.tbUser, "tbUser");
             this.tbUser.Name = "tbUser";
             this.tbUser.ReadOnly = true;
-            this.tbUser.Size = new System.Drawing.Size(159, 22);
-            this.tbUser.TabIndex = 0;
             // 
             // menuStrip1
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1332, 28);
-            this.menuStrip1.TabIndex = 2;
-            this.menuStrip1.Text = "menuStrip1";
             // 
             // menuToolStripMenuItem
             // 
@@ -173,28 +138,24 @@ namespace Game_Caro
             this.undoToolStripMenuItem,
             this.quitToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
-            this.menuToolStripMenuItem.Text = "Menu";
+            resources.ApplyResources(this.menuToolStripMenuItem, "menuToolStripMenuItem");
             // 
             // newGameToolStripMenuItem
             // 
             this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
-            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(164, 26);
-            this.newGameToolStripMenuItem.Text = "New game";
+            resources.ApplyResources(this.newGameToolStripMenuItem, "newGameToolStripMenuItem");
             this.newGameToolStripMenuItem.Click += new System.EventHandler(this.newGameToolStripMenuItem_Click);
             // 
             // undoToolStripMenuItem
             // 
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(164, 26);
-            this.undoToolStripMenuItem.Text = "Undo";
+            resources.ApplyResources(this.undoToolStripMenuItem, "undoToolStripMenuItem");
             this.undoToolStripMenuItem.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
             // 
             // quitToolStripMenuItem
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(164, 26);
-            this.quitToolStripMenuItem.Text = "Quit";
+            resources.ApplyResources(this.quitToolStripMenuItem, "quitToolStripMenuItem");
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
             // 
             // tmCoutDown
@@ -203,18 +164,16 @@ namespace Game_Caro
             // 
             // CaroView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1332, 808);
             this.Controls.Add(this.pnlControl);
             this.Controls.Add(this.pnlLogo);
             this.Controls.Add(this.pnlChessBoard);
             this.Controls.Add(this.menuStrip1);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.MainMenuStrip = this.menuStrip1;
-            this.MaximumSize = new System.Drawing.Size(1350, 855);
             this.Name = "CaroView";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Game Caro";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CaroView_FormClosing);
             this.pnlLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();

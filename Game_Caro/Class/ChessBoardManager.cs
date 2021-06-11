@@ -13,6 +13,7 @@ namespace Game_Caro.Class
     public class ChessBoardManager
     {
         #region Properties
+
         private Panel chessBoard;
 
         public Panel ChessBoard 
@@ -20,7 +21,6 @@ namespace Game_Caro.Class
             get => chessBoard; 
             set => chessBoard = value; 
         }
-
 
         private List<Player> player;
 
@@ -31,6 +31,7 @@ namespace Game_Caro.Class
         }
 
         private int curentPlayer;
+
         public int CurentPlayer
         {
             get => curentPlayer; 
@@ -38,14 +39,17 @@ namespace Game_Caro.Class
         }
 
         private TextBox playerName;
+
         public TextBox PlayerName { get => playerName; set => playerName = value; }
 
         private PictureBox playerMark;
+
         public PictureBox PlayerMark { get => playerMark; set => playerMark = value; }
 
         private List<List<Button>> Matrix;
 
         private event EventHandler playerMarked;
+
         public event EventHandler PlayerMarked
         {
             add
@@ -59,6 +63,7 @@ namespace Game_Caro.Class
         }
 
         private event EventHandler endedGame;
+
         public event EventHandler EndedGame
         {
             add
@@ -70,9 +75,19 @@ namespace Game_Caro.Class
                 endedGame -= value;
             }
         }
+
+        private Stack<PlayInfo> playTimeLine; // Bà cha m sao k tạo ở dưới Initialize đc ??????
+ 
+        public Stack<PlayInfo> PlayTimeLine
+        {
+            get { return playTimeLine; }
+            set { playTimeLine = value; }
+        }
+
         #endregion
 
         #region Initialize
+
         public ChessBoardManager(Panel _chessboard, TextBox _playerName, PictureBox _playerMark )
         {
             this.chessBoard = _chessboard;
@@ -83,17 +98,22 @@ namespace Game_Caro.Class
                 new Player("Bùi Minh Trí", Image.FromFile(Application.StartupPath + "\\Resources\\1.png")),
                 new Player("Kenly Bùi", Image.FromFile(Application.StartupPath + "\\Resources\\2.png")),
             };
-            curentPlayer = 0;
-            ChangePlayer();
         }
+
+        //  playTimeLine = new Stack<PlayInfo>();
 
         #endregion
 
         #region Methods
+
         public void DrawChessBoard()
         {
             chessBoard.Enabled = true;
             chessBoard.Controls.Clear();
+            playTimeLine = new Stack<PlayInfo>();
+
+            curentPlayer = 0;
+            ChangePlayer();
 
             Matrix = new List<List<Button>>();
             Button oldBTN = new Button() { Width = 0, Location = new Point(0, 0) };
@@ -120,16 +140,19 @@ namespace Game_Caro.Class
                 oldBTN.Width = 0;
             }
         }
+
         private void ChangePlayer()
         {
+            CurentPlayer = CurentPlayer == 1 ? 0 : 1;
             playerName.Text = Player[CurentPlayer].Name;
             playerMark.Image = Player[CurentPlayer].Mark;
         }
+
         private void ChangeMark(Button _btn)
         {
             _btn.BackgroundImage = Player[CurentPlayer].Mark;
-            CurentPlayer = CurentPlayer == 1 ? 0 : 1;
         }
+
         private void Btn_Click(object sender, EventArgs e)
         {
             Button btn = sender as Button;
@@ -137,17 +160,26 @@ namespace Game_Caro.Class
             if (btn.BackgroundImage != null)
                 return;
 
+            playTimeLine.Push(new PlayInfo(GetChessPoint(btn),CurentPlayer));
+
             ChangeMark(btn);
-            ChangePlayer();
+
             if (playerMarked != null)
             {
                 playerMarked(this, new EventArgs());
             }
+
             if (isEndGame(btn))
             {
                 EndGame();
-            }           
+            }
+            else
+            {
+                ChangePlayer();
+            }
+
         }
+
         private Point GetChessPoint(Button _btn)
         {
             int vertical = Convert.ToInt32(_btn.Tag);
@@ -155,6 +187,7 @@ namespace Game_Caro.Class
             Point point = new Point(horizontal, vertical);
             return point;
         }
+
         private bool isEndHorizontal(Button _btn)
         {
             Point point = GetChessPoint(_btn);
@@ -180,6 +213,7 @@ namespace Game_Caro.Class
             }
             return countLeft + countRight == 5;
         }
+
         private bool isEndVertical(Button _btn)
         {
             Point point = GetChessPoint(_btn);
@@ -205,6 +239,7 @@ namespace Game_Caro.Class
             }
             return countTop + countBottom == 5;
         }
+
         private bool isEndPrimary(Button _btn)
         {
             Point point = GetChessPoint(_btn);
@@ -230,6 +265,7 @@ namespace Game_Caro.Class
             }
             return countTop + countBottom == 5;
         }
+
         private bool isEndSub(Button _btn)
         {
             Point point = GetChessPoint(_btn);
@@ -257,17 +293,42 @@ namespace Game_Caro.Class
             }
             return countTop + countBottom == 5;
         }
+
         private bool isEndGame(Button _btn)
         {
             return isEndHorizontal(_btn) || isEndVertical(_btn) || isEndPrimary(_btn) || isEndSub(_btn);
         }
+
         private void EndGame()
         {
             if (endedGame != null)
                 endedGame(this, new EventArgs());            
         }
-        #endregion
 
-        
+        public bool Undo()
+        {
+            if (PlayTimeLine.Count <= 0)
+                return false;
+            PlayInfo oldPoint = PlayTimeLine.Pop();
+            Button btn = Matrix[oldPoint.Point.Y][oldPoint.Point.X];
+
+            btn.BackgroundImage = null;
+
+
+            if (PlayTimeLine.Count <= 0)
+            {
+                CurentPlayer = 0;
+            }
+            else
+            {
+                CurentPlayer = PlayTimeLine.Peek().CurrentPlayer == 1 ? 0 : 1;
+            }
+
+            ChangePlayer();
+
+            return true;
+        }
+
+        #endregion              
     }
 }

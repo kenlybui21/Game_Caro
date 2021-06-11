@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Class\ChessBoardManager.cs" />
     <Compile Include="Class\Cons.cs" />
+    <Compile Include="Class\PlayInfo.cs" />
     <Compile Include="View\View.cs">
       <SubType>Form</SubType>
     </Compile>

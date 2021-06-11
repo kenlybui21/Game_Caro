@@ -18,6 +18,8 @@ namespace Game_Caro
         #region Properties;
         ChessBoardManager ChessBoard1;
         #endregion
+
+        #region Methods
         public CaroView()
         {
             InitializeComponent();
@@ -27,10 +29,9 @@ namespace Game_Caro
             tmCoutDown.Interval = Cons.COUT_DOWN_INTERVAL;
             prcbCoolDown.Value = 0;
 
-            ChessBoard1 = new ChessBoardManager(pnlChessBoard, tbUser, pbPlayerMark);       
+            ChessBoard1 = new ChessBoardManager(pnlChessBoard, tbUser, pbPlayerMark);
             ChessBoard1.EndedGame += ChessBoard1_EndedGame;
-            ChessBoard1.PlayerMarked += ChessBoard1_PlayerMarked;
-
+            ChessBoard1.PlayerMarked += ChessBoard1_PlayerMarked;            
             NewGame();
         }
 
@@ -44,6 +45,42 @@ namespace Game_Caro
         {
             EndGame();
         }
+
+        private void EndGame()
+        {
+            tmCoutDown.Stop();
+            pnlChessBoard.Enabled = false;
+            undoToolStripMenuItem.Enabled = false;
+            MessageBox.Show("Kết thúc game!\n\nWiner:" + ChessBoard1.Player[ChessBoard1.CurentPlayer].Name, "Thông báo", MessageBoxButtons.OK);
+        }
+
+        public void NewGame()
+        {
+            tmCoutDown.Stop();
+            prcbCoolDown.Value = 0;
+            undoToolStripMenuItem.Enabled = true;
+            ChessBoard1.DrawChessBoard();
+        }
+
+        private void QuitGame()
+        {
+            Application.Exit();
+        }
+
+        private void UndoGame()
+        {
+            ChessBoard1.Undo();
+        }
+
+        private void CaroView_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Bạn có chắc muốn thoát", "Thông báo", MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
+                e.Cancel = true;
+        }
+
+        #endregion
+
+        #region ToolScrip
 
         private void newGameToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -60,44 +97,23 @@ namespace Game_Caro
             QuitGame();
         }
 
+        #endregion
+
+        #region TimerTick
+
         private void tmCoutDown_Tick(object sender, EventArgs e)
         {
             prcbCoolDown.PerformStep();
             if (prcbCoolDown.Value >= prcbCoolDown.Maximum)
             {
-                EndGame();               
+                ChessBoard1.CurentPlayer = ChessBoard1.CurentPlayer == 1 ? 0 : 1;
+                EndGame();
             }
         }
 
-        private void EndGame()
-        {
-            tmCoutDown.Stop();
-            pnlChessBoard.Enabled = false;
-            MessageBox.Show("Kết thúc game!\nWiner:");
-        }
-
-        public void NewGame()
-        {
-            tmCoutDown.Stop();
-            prcbCoolDown.Value = 0;
-
-            ChessBoard1.DrawChessBoard();         
-        }
-
-        private void QuitGame()
-        {
-            Application.Exit();
-        }
-
-        private void UndoGame()
-        {
-
-        }
-
-        private void CaroView_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (MessageBox.Show("Bạn có chắc muốn thoát", "Thông báo", MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
-            e.Cancel = true;
-        }
+        #endregion
     }
+
+
+
 }
