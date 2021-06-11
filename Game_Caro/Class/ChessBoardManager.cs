@@ -93,6 +93,7 @@ namespace Game_Caro.Class
         public void DrawChessBoard()
         {
             chessBoard.Enabled = true;
+            chessBoard.Controls.Clear();
 
             Matrix = new List<List<Button>>();
             Button oldBTN = new Button() { Width = 0, Location = new Point(0, 0) };

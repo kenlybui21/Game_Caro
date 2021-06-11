@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Game_Caro.Properties;
 
 
 namespace Game_Caro
@@ -15,6 +16,7 @@ namespace Game_Caro
     public partial class CaroView : Form
     {
         #region Properties;
+        ChessBoardManager ChessBoard1;
         #endregion
         public CaroView()
         {
@@ -25,10 +27,11 @@ namespace Game_Caro
             tmCoutDown.Interval = Cons.COUT_DOWN_INTERVAL;
             prcbCoolDown.Value = 0;
 
-            ChessBoardManager ChessBoard1 = new ChessBoardManager(pnlChessBoard, tbUser, pbPlayerMark);
-            ChessBoard1.DrawChessBoard();
+            ChessBoard1 = new ChessBoardManager(pnlChessBoard, tbUser, pbPlayerMark);       
             ChessBoard1.EndedGame += ChessBoard1_EndedGame;
             ChessBoard1.PlayerMarked += ChessBoard1_PlayerMarked;
+
+            NewGame();
         }
 
         private void ChessBoard1_PlayerMarked(object sender, EventArgs e)
@@ -44,17 +47,17 @@ namespace Game_Caro
 
         private void newGameToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            NewGame();
         }
 
         private void undoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            UndoGame();
         }
 
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            QuitGame();
         }
 
         private void tmCoutDown_Tick(object sender, EventArgs e)
@@ -71,6 +74,30 @@ namespace Game_Caro
             tmCoutDown.Stop();
             pnlChessBoard.Enabled = false;
             MessageBox.Show("Kết thúc game!\nWiner:");
+        }
+
+        public void NewGame()
+        {
+            tmCoutDown.Stop();
+            prcbCoolDown.Value = 0;
+
+            ChessBoard1.DrawChessBoard();         
+        }
+
+        private void QuitGame()
+        {
+            Application.Exit();
+        }
+
+        private void UndoGame()
+        {
+
+        }
+
+        private void CaroView_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Bạn có chắc muốn thoát", "Thông báo", MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
+            e.Cancel = true;
         }
     }
 }

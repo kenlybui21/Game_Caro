@@ -215,6 +215,7 @@ namespace Game_Caro
             this.Name = "CaroView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Game Caro";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CaroView_FormClosing);
             this.pnlLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.pnlControl.ResumeLayout(false);
